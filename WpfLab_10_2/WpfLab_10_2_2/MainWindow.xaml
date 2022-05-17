@@ -1,0 +1,233 @@
+﻿<Window x:Class="WpfLab_10_2_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfLab_10_2_2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="800" Background="#222222" MinHeight="800" MinWidth="800" MaxHeight="800" MaxWidth="800">
+    <Window.Resources>
+        <Style x:Key="BordersStyle">
+            <Setter Property="Border.Width" Value="133"/>
+            <Setter Property="Border.Height" Value="200"/>
+        </Style>
+        <Style x:Key="LeftColumn" BasedOn="{StaticResource BordersStyle}">
+            <Setter Property="Grid.Column" Value="0"/>
+            <Setter Property="Border.HorizontalAlignment" Value="Right"/>
+        </Style>
+        <Style x:Key="CenterColumn" BasedOn="{StaticResource BordersStyle}">
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Border.HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="RightColumn" BasedOn="{StaticResource BordersStyle}">
+            <Setter Property="Border.HorizontalAlignment" Value="Left"/>
+            <Setter Property="Grid.Column" Value="2"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border VerticalAlignment="Top" Style="{StaticResource CenterColumn}">
+            <Image Source="Data/empire.jpg" Width="133" Height="200"/>
+        </Border>
+        
+        <Border Margin="65,202,65,0" Style="{StaticResource CenterColumn}">
+            <Border.Background>
+                <VisualBrush Visual="{Binding ElementName=myImage}">
+                    <VisualBrush.Transform>
+                        <ScaleTransform ScaleX="1" ScaleY="-1" CenterX="0" CenterY="100">
+                        </ScaleTransform>
+                    </VisualBrush.Transform>
+                </VisualBrush>
+            </Border.Background>
+            <Border.OpacityMask>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#999999"></GradientStop>
+                    <GradientStop Offset="0.3" Color="Transparent"></GradientStop>
+                </LinearGradientBrush>
+            </Border.OpacityMask>
+        </Border>
+        
+        
+        <Border Grid.Row="1" Margin="65,0" VerticalAlignment="Bottom" Style="{StaticResource CenterColumn}" Width="132">
+            <Border.Background>
+                <VisualBrush Visual="{Binding ElementName=myImage}">
+                    <VisualBrush.Transform>
+                        <ScaleTransform ScaleX="1" ScaleY="-1" CenterX="0" CenterY="100">
+                        </ScaleTransform>
+                    </VisualBrush.Transform>
+                </VisualBrush>
+            </Border.Background>
+        </Border>
+
+        <Border Grid.Row="1"  VerticalAlignment="Top" Style="{StaticResource CenterColumn}">
+            <Image Source="Data/empire.jpg" Width="133" Height="200"/>
+        </Border>
+
+        <Border Grid.Row="1" Margin="65,202,66,111" Style="{StaticResource CenterColumn}" RenderTransformOrigin="0.5,0.092" Width="132">
+            <Border.Background>
+                <VisualBrush Visual="{Binding ElementName=myImage}">
+                    <VisualBrush.Transform>
+                        <ScaleTransform ScaleX="1" ScaleY="-1" CenterX="0" CenterY="100">
+                        </ScaleTransform>
+                    </VisualBrush.Transform>
+                </VisualBrush>
+            </Border.Background>
+            <Border.OpacityMask>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#999999"></GradientStop>
+                    <GradientStop Offset="0.2" Color="Transparent"></GradientStop>
+                </LinearGradientBrush>
+            </Border.OpacityMask>
+        </Border>
+
+        <Border Grid.Row="1" Margin="65,111,66,202" Style="{StaticResource CenterColumn}" Width="132">
+            <Border.Background>
+                <VisualBrush Visual="{Binding ElementName=myImage}">
+                    <VisualBrush.Transform>
+                        <ScaleTransform ScaleX="1" ScaleY="1" CenterX="0" CenterY="10">
+                        </ScaleTransform>
+                    </VisualBrush.Transform>
+                </VisualBrush>
+            </Border.Background>
+            <Border.OpacityMask>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="1" Color="#999999"></GradientStop>
+                    <GradientStop Offset="0.8" Color="Transparent"></GradientStop>
+                </LinearGradientBrush>
+            </Border.OpacityMask>
+        </Border>
+
+
+        <Border Grid.Row="1" VerticalAlignment="Top" Style="{StaticResource LeftColumn}">
+            <Image Source="Data/empire.jpg" Width="133" Height="200" x:Name="myImage"/>
+            <Border.RenderTransform>
+                <SkewTransform CenterX="133" CenterY="0" AngleX="0" AngleY="-10"/>
+            </Border.RenderTransform>
+        </Border>
+        
+        <Border Grid.Row="1" Margin="0,137,0,0" Style="{StaticResource LeftColumn}">
+            <Border.Background>
+                <VisualBrush Visual="{Binding ElementName=myImage}">
+                    <VisualBrush.Transform>
+                        <ScaleTransform ScaleX="1" ScaleY="-1" CenterX="0" CenterY="100">
+                        </ScaleTransform>
+                    </VisualBrush.Transform>
+                </VisualBrush>
+            </Border.Background>
+            <Border.RenderTransform>
+                <SkewTransform CenterX="0" CenterY="200" AngleX="0" AngleY="-10"/>
+            </Border.RenderTransform>
+            <Border.OpacityMask>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#999999"></GradientStop>
+                    <GradientStop Offset="0.2" Color="Transparent"></GradientStop>
+                </LinearGradientBrush>
+            </Border.OpacityMask>
+        </Border>
+        
+        <Border Grid.Row="1" Margin="0,137,0,179" Style="{StaticResource LeftColumn}">
+            <Border.Background>
+                <VisualBrush Visual="{Binding ElementName=myImage}">
+                    <VisualBrush.Transform>
+                        <ScaleTransform ScaleX="1" ScaleY="1" CenterX="0" CenterY="100">
+                        </ScaleTransform>
+                    </VisualBrush.Transform>
+                </VisualBrush>
+            </Border.Background>
+            <Border.RenderTransform>
+                <SkewTransform CenterX="0" CenterY="200" AngleX="0" AngleY="-10"/>
+            </Border.RenderTransform>
+            <Border.OpacityMask>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="1" Color="#999999"></GradientStop>
+                    <GradientStop Offset="0.8" Color="Transparent"></GradientStop>
+                </LinearGradientBrush>
+            </Border.OpacityMask>
+        </Border>
+        
+        <Border Grid.Row="1" Margin="0,0,0,-23" VerticalAlignment="Bottom" Style="{StaticResource LeftColumn}">
+            <Border.Background>
+                <VisualBrush Visual="{Binding ElementName=myImage}">
+                    <VisualBrush.Transform>
+                        <ScaleTransform ScaleX="1" ScaleY="-1" CenterX="0" CenterY="100">
+                        </ScaleTransform>
+                    </VisualBrush.Transform>
+                </VisualBrush>
+            </Border.Background>
+            <Border.RenderTransform>
+                <SkewTransform CenterX="0" CenterY="0" AngleX="0" AngleY="-10"/>
+            </Border.RenderTransform>
+        </Border>
+       
+
+        <Border Grid.Row="1" Margin="0,202,0,111" Style="{StaticResource RightColumn}">
+            <Border.Background>
+                <VisualBrush Visual="{Binding ElementName=myImage}">
+                    <VisualBrush.Transform>
+                        <ScaleTransform ScaleX="1" ScaleY="-1" CenterX="0" CenterY="100">
+                        </ScaleTransform>
+                    </VisualBrush.Transform>
+                </VisualBrush>
+            </Border.Background>
+            <Border.RenderTransform>
+                <SkewTransform CenterX="0" CenterY="0" AngleX="0" AngleY="10"/>
+            </Border.RenderTransform>
+            <Border.OpacityMask>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0" Color="#999999"></GradientStop>
+                    <GradientStop Offset="0.2" Color="Transparent"></GradientStop>
+                </LinearGradientBrush>
+            </Border.OpacityMask>
+        </Border>
+        
+        <Border Grid.Row="1"  VerticalAlignment="Top" Style="{StaticResource RightColumn}">
+            <Image Source="Data/empire.jpg" Width="133" Height="200"/>
+            <Border.RenderTransform>
+                <SkewTransform CenterX="0" CenterY="0" AngleX="0" AngleY="10"/>
+            </Border.RenderTransform>
+        </Border>
+
+        <Border Grid.Row="1" Margin="263,111,0,202" Style="{StaticResource RightColumn}" Grid.ColumnSpan="2" Grid.Column="1">
+            <Border.Background>
+                <VisualBrush Visual="{Binding ElementName=myImage}">
+                    <VisualBrush.Transform>
+                        <ScaleTransform ScaleX="1" ScaleY="1" CenterX="0" CenterY="100">
+                        </ScaleTransform>
+                    </VisualBrush.Transform>
+                </VisualBrush>
+            </Border.Background>
+            <Border.RenderTransform>
+                <SkewTransform CenterX="0" CenterY="0" AngleX="0" AngleY="10"/>
+            </Border.RenderTransform>
+            <Border.OpacityMask>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="1" Color="#999999"></GradientStop>
+                    <GradientStop Offset="0.8" Color="Transparent"></GradientStop>
+                </LinearGradientBrush>
+            </Border.OpacityMask>
+        </Border>
+        
+        <Border Grid.Row="1" Margin="263,0,0,0" VerticalAlignment="Bottom" Style="{StaticResource RightColumn}" Grid.ColumnSpan="2" Grid.Column="1">
+            <Border.Background>
+                <VisualBrush Visual="{Binding ElementName=myImage}">
+                    <VisualBrush.Transform>
+                        <ScaleTransform ScaleX="1" ScaleY="-1" CenterX="0" CenterY="100">
+                        </ScaleTransform>
+                    </VisualBrush.Transform>
+                </VisualBrush>
+            </Border.Background>
+            <Border.RenderTransform>
+                <SkewTransform CenterX="0" CenterY="0" AngleX="0" AngleY="10"/>
+            </Border.RenderTransform>
+        </Border>
+
+    </Grid>
+</Window>
